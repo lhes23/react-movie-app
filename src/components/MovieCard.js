@@ -3,7 +3,7 @@ import "../App.css";
 
 const MovieCard = ({ movie }) => {
   return (
-    <div className="movie" key={movie.imdbID}>
+    <div className="movie">
       <div>{movie.Year}</div>
 
       <div>
