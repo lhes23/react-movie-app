@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import Search from "../components/Search";
 import MovieCard from "../components/MovieCard";
 import { Link } from "react-router-dom";

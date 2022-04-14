@@ -2,7 +2,10 @@ import React, { useState } from "react";
 
 export const MoviesContext = React.createContext({
   movies: [],
+  search: "Batman",
   getMovies: () => {},
+  searchMovies: () => {},
+  setSearch: () => {},
 });
 
 const api = {
@@ -11,20 +14,10 @@ const api = {
 
 const MoviesContextProvider = (props) => {
   const [movies, setMovies] = useState([]);
-  const [search, setSearch] = useState("Batman");
+  const [search, setSearch] = useState("");
 
-  const getMoviesHandler = (data) => {
+  const getMovies = (data) => {
     setMovies(data);
-  };
-
-  const addMovieHandler = (movie) => {
-    setMovies((prevMovies) => [...prevMovies, movie]);
-  };
-
-  const removeMovieHandler = (ID) => {
-    setMovies((prevMovies) =>
-      prevMovies.filter((movie) => movie.imdbID !== ID)
-    );
   };
 
   const searchMovies = (search) => {
@@ -32,17 +25,19 @@ const MoviesContextProvider = (props) => {
       .then((res) => res.json())
       .then((data) => {
         setMovies(data.Search);
+      })
+      .catch((err) => {
+        console.log(err);
+        return;
       });
   };
 
   const value = {
     movies,
-    getMovies: getMoviesHandler,
-    addMovie: addMovieHandler,
-    removeMovie: removeMovieHandler,
+    search,
+    getMovies,
     searchMovies,
     setSearch,
-    search,
   };
 
   return (
