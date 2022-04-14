@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 export const MoviesContext = React.createContext({
   movies: [],
+  getMovies: () => {},
 });
 
 const api = {
@@ -10,7 +11,7 @@ const api = {
 
 const MoviesContextProvider = (props) => {
   const [movies, setMovies] = useState([]);
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("Batman");
 
   const getMoviesHandler = (data) => {
     setMovies(data);

@@ -7,18 +7,10 @@ import { MoviesContext } from "../context/MoviesContext";
 const Home = () => {
   const moviesCtx = useContext(MoviesContext);
 
-  useEffect(() => {
-    moviesCtx.searchMovies("Batman");
-  }, []);
-
   return (
     <div className="app">
       <h1>React Movie App</h1>
-      <Search
-        searchMovies={moviesCtx.searchMovies}
-        search={moviesCtx.search}
-        setSearch={moviesCtx.setSearch}
-      />
+      <Search />
       <div className="container">
         {moviesCtx.movies.map((movie) => (
           <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID}>
