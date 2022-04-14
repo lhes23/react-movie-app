@@ -3,25 +3,25 @@ import Search from "../components/Search";
 import MovieCard from "../components/MovieCard";
 import { Link } from "react-router-dom";
 
-const api = {
-  url: "http://www.omdbapi.com/?apikey=a9df5544",
-};
+// const api = {
+//   url: "http://www.omdbapi.com/?apikey=a9df5544",
+// };
 
-const Home = () => {
-  const [movies, setMovies] = useState([]);
-  const [search, setSearch] = useState("");
+const Home = ({ movies, searchMovies, search, setSearch }) => {
+  //   const [movies, setMovies] = useState([]);
+  //   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    searchMovies("Batman");
-  }, []);
+  //   useEffect(() => {
+  //     searchMovies("Batman");
+  //   }, []);
 
-  const searchMovies = (search) => {
-    fetch(`${api.url}&s=${search}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setMovies(data.Search);
-      });
-  };
+  //   const searchMovies = (search) => {
+  //     fetch(`${api.url}&s=${search}`)
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         setMovies(data.Search);
+  //       });
+  //   };
   return (
     <div className="app">
       <h1>React Movie App</h1>
