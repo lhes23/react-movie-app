@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 export const MoviesContext = React.createContext({
-  Movies: [],
+  movies: [],
 });
 
 const api = {
@@ -35,11 +35,12 @@ const MoviesContextProvider = (props) => {
   };
 
   const value = {
-    Movies: movies,
+    movies,
     getMovies: getMoviesHandler,
     addMovie: addMovieHandler,
     removeMovie: removeMovieHandler,
     searchMovies,
+    setSearch,
     search,
   };
 

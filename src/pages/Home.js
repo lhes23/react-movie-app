@@ -1,37 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Search from "../components/Search";
 import MovieCard from "../components/MovieCard";
 import { Link } from "react-router-dom";
+import { MoviesContext } from "../context/MoviesContext";
 
-// const api = {
-//   url: "http://www.omdbapi.com/?apikey=a9df5544",
-// };
+const Home = () => {
+  const moviesCtx = useContext(MoviesContext);
 
-const Home = ({ movies, searchMovies, search, setSearch }) => {
-  //   const [movies, setMovies] = useState([]);
-  //   const [search, setSearch] = useState("");
+  useEffect(() => {
+    moviesCtx.searchMovies("Batman");
+  }, []);
 
-  //   useEffect(() => {
-  //     searchMovies("Batman");
-  //   }, []);
-
-  //   const searchMovies = (search) => {
-  //     fetch(`${api.url}&s=${search}`)
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         setMovies(data.Search);
-  //       });
-  //   };
   return (
     <div className="app">
       <h1>React Movie App</h1>
       <Search
-        searchMovies={searchMovies}
-        search={search}
-        setSearch={setSearch}
+        searchMovies={moviesCtx.searchMovies}
+        search={moviesCtx.search}
+        setSearch={moviesCtx.setSearch}
       />
       <div className="container">
-        {movies.map((movie) => (
+        {moviesCtx.movies.map((movie) => (
           <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID}>
             <MovieCard movie={movie} />
           </Link>
