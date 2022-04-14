@@ -13,7 +13,7 @@ const Home = () => {
       <Search />
       <div className="container">
         {moviesCtx.movies.map((movie) => (
-          <Link to={`/movie/${movie.imdbID}`} key={movie.imdbID}>
+          <Link to={`/movies/${movie.imdbID}`} key={movie.imdbID}>
             <MovieCard movie={movie} />
           </Link>
         ))}

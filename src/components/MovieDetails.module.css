@@ -1,0 +1,15 @@
+.movieDetails {
+  width: 100%;
+  display: flex;
+}
+
+.movieDetails img {
+  padding: auto;
+  margin: 50px;
+  border-radius: 30px;
+}
+
+.title {
+  vertical-align: center;
+  color: rgba(#fff, green, blue, 0.5);
+}

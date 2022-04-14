@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import searchIcon from "../search.svg";
 import "../App.css";
 import { MoviesContext } from "../context/MoviesContext";
@@ -16,12 +16,12 @@ const Search = () => {
   };
 
   return (
-    <div className="search">
-      <form onSubmit={submitFormHandler}>
+    <form onSubmit={submitFormHandler} className="search">
+      <div>
         <input type="text" onChange={setSearchHandler} />
         <img src={searchIcon} alt="search" onClick={submitFormHandler} />
-      </form>
-    </div>
+      </div>
+    </form>
   );
 };
 
